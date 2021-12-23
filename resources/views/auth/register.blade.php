@@ -1,7 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>PKUAS || Registration</title>
+</head>
+<body>
+    
+</body>
+</html>
+
 <x-guest-layout>
     <x-jet-authentication-card>
         <x-slot name="logo">
-            <x-jet-authentication-card-logo />
+            <img src="{{ asset('img/logo.png') }}" alt="iman" width="400" >
         </x-slot>
 
         <x-jet-validation-errors class="mb-4" />
@@ -18,6 +31,17 @@
                 <x-jet-label for="email" value="{{ __('Email') }}" />
                 <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
             </div>
+
+            <div>
+                <x-jet-label for="phone" value="{{ __('Phone') }}" />
+                <x-jet-input id="phone" class="block mt-1 w-full" type="text" name="phone" :value="old('phone')" required autofocus autocomplete="Phone" placeholder="0112235412" />
+            </div>
+
+            <div>
+                <x-jet-label for="address" value="{{ __('Address') }}" />
+                <x-jet-input id="address" class="block mt-1 w-full" type="text" name="address" :value="old('phone')" required autofocus autocomplete="Address" placeholder="EG-302 KK5" />
+            </div>
+
 
             <div class="mt-4">
                 <x-jet-label for="password" value="{{ __('Password') }}" />
