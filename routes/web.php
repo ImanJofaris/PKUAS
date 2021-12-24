@@ -25,3 +25,5 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 Route::get('/add_doctor_view','App\Http\Controllers\AdminController@addview');
 Route::get('/admin_home','App\Http\Controllers\AdminController@dashboard');
+
+Route::post('/upload_doctor','App\Http\Controllers\AdminController@upload');

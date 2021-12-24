@@ -38,34 +38,49 @@
     @include('admin.sidebar')
     
     
+    
         <div class="container-fluid page-body-wrapper">
+           
             <div class="container">
+                <br>
 
-                <form action="/customerdata/create" method="POST">
+                <h1 style="font-size: 30px">Add Doctor</h1>
+
+               
+
+                <form action="{{ url('upload_doctor') }}" method="POST" enctype="multipart/form-data">
                     {{ csrf_field() }}
+                    <br>
                     <div class="mb-3">
                         <label for="exampleFormControlInput1" class="form-label">Doctor Name</label>
-                        <input type="text" name="DoctorName" class="form-control" id="exampleFormControlInput1" placeholder="Harry">
+                        <input type="text" name="doctorName" class="form-control" id="exampleFormControlInput1" placeholder="Harry">
                       </div>
                       <div class="mb-3">
                         <label for="exampleFormControlInput1" class="form-label">Phone Number</label>
-                        <input type="text" name="PhoneNumber" class="form-control" id="exampleFormControlInput1" placeholder="Styles">
+                        <input type="text" name="phoneNumber" class="form-control" id="exampleFormControlInput1" placeholder="Styles">
                       </div>
                       <br>
                       <select name="speciality" class="form-select" aria-label="Default select example">
                         <option selected>Speciality</option>
-                        <option value="FP">Family Physician</option>
+                        <option value="Family Physician">Family Physician</option>
+                        <option value="Family Physician">Dentist</option>
+                        <option value="Family Physician">Primary Care</option>
                       </select>
-                      <br>
+                      <br><br>
                       <div class="mb-3">
                         <label for="exampleFormControlInput1" class="form-label">Room Number</label>
                         <input type="text" name="roomNumber" class="form-control" id="exampleFormControlInput1" placeholder="">
                       </div>
                       <br>
+                      <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Doctor Image</label>
+                        <br>
+                        <input type="file" name="file">
+                    </div>
                       
 
                       <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" class="btn btn-outline-success">Submit</button>
                     </div>
                 </form>
 
