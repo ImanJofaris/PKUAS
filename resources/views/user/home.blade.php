@@ -96,6 +96,14 @@
     </nav>
   </header>
 
+  @if(session()->has('message'))
+                <div class="alert alert-success">
+                    <button type="button" class="close" data-dismiss="alert">x</button>
+                    {{ session()->get('message') }}
+                </div>
+
+            @endif
+
   
 
     <div class="page-section pb-0">
@@ -217,6 +225,8 @@
   </div> <!-- .page-section --> --}}
 
   @include('user.appointment')
+
+  
 
   
 
