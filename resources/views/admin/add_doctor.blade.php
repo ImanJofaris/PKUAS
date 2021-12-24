@@ -40,11 +40,22 @@
     
     
         <div class="container-fluid page-body-wrapper">
+            
+            
            
             <div class="container">
                 <br>
+            @if(session()->has('message'))
+                <div class="alert alert-success">
+                    <button type="button" class="close" data-dismiss="alert">x</button>
+                    {{ session()->get('message') }}
+                </div>
+
+            @endif
+                
 
                 <h1 style="font-size: 30px">Add Doctor</h1>
+                
 
                
 
@@ -53,11 +64,11 @@
                     <br>
                     <div class="mb-3">
                         <label for="exampleFormControlInput1" class="form-label">Doctor Name</label>
-                        <input type="text" name="doctorName" class="form-control" id="exampleFormControlInput1" placeholder="Harry">
+                        <input type="text" name="doctorName" class="form-control" id="exampleFormControlInput1" placeholder="Harry" required>
                       </div>
                       <div class="mb-3">
                         <label for="exampleFormControlInput1" class="form-label">Phone Number</label>
-                        <input type="text" name="phoneNumber" class="form-control" id="exampleFormControlInput1" placeholder="Styles">
+                        <input type="text" name="phoneNumber" class="form-control" id="exampleFormControlInput1" placeholder="01123541258" required>
                       </div>
                       <br>
                       <select name="speciality" class="form-select" aria-label="Default select example">
@@ -69,13 +80,13 @@
                       <br><br>
                       <div class="mb-3">
                         <label for="exampleFormControlInput1" class="form-label">Room Number</label>
-                        <input type="text" name="roomNumber" class="form-control" id="exampleFormControlInput1" placeholder="">
+                        <input type="text" name="roomNumber" class="form-control" id="exampleFormControlInput1" placeholder="301" required>
                       </div>
                       <br>
                       <div class="mb-3">
                         <label for="exampleFormControlInput1" class="form-label">Doctor Image</label>
                         <br>
-                        <input type="file" name="file">
+                        <input type="file" name="file" required>
                     </div>
                       
 
