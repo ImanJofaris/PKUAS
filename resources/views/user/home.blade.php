@@ -73,6 +73,9 @@
             
             {{-- check auth --}}
             @auth
+            <li class="nav-item">
+              <a class="nav-link btn btn-primary" style="color: white;" href="{{ url('myappointment') }}">My Appointment</a>
+            </li>
             <x-app-layout>
             </x-app-layout>
             
