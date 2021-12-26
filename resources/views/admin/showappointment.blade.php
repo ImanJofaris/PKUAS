@@ -67,6 +67,7 @@
                     <th>Status</th>
                     <th>Approve</th>
                     <th>Cancel</th>
+                    <th>E-Mail Notification</th>
                 </tr>
                
                 @foreach ($data as $appoint)
@@ -83,7 +84,7 @@
                     <td style="font-weight: bold">{{ $appoint->status }}</td>
                     <td><a class="btn btn-success" href="{{ url('approved',$appoint->id) }}">Approve</a></td>
                     <td><a class="btn btn-danger" style="color: white;" href="{{ url('deleted',$appoint->id) }}" onclick="return confirm('Are you sure you want to cancel this appointment')">Cancel</a></td>
-                    
+                    <td><a class="btn btn-primary" href="{{ url('emailview',$appoint->id) }}">Send email</a></td>
                 </tr>
                 @endforeach
               </table>
