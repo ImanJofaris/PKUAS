@@ -15,7 +15,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Dashboard</title>
+    <title>PKUAS || Appointments</title>
 
     
 
@@ -52,8 +52,10 @@
         
         
         <div class="container-fluid page-body-wrapper">
-            <br><br>
+            <br>
             <table class="table table-striped">
+                <h1 style="font-size: 30px; color:black;">List of Appointment</h1>
+                <br><br>
         
                 <tr>
                     <th>Student Name</th>

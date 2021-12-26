@@ -1,8 +1,4 @@
-{{-- <x-app-layout>
 
-    <h1>This is admin dashboard</h1>
-    
-</x-app-layout> --}}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -17,8 +13,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
+    <base href="/public">
 
-    <title>PKUAS || Add Doctor</title>
+    <title>PKUAS || Update </title>
 
     
 
@@ -37,8 +34,9 @@
 
     @include('admin.sidebar')
     
-    
-    
+        <!-- End of Sidebar -->
+
+        
         <div class="container-fluid page-body-wrapper">
             
             
@@ -54,25 +52,27 @@
             @endif
                 
 
-                <h1 style="font-size: 30px">Add Doctor</h1>
+                <h1 style="font-size: 30px">Update Information</h1>
                 
 
                
 
-                <form action="{{ url('upload_doctor') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ url('editdoctor',$data->id) }}" method="POST" enctype="multipart/form-data">
                     {{ csrf_field() }}
                     <br>
                     <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">Doctor Name</label>
-                        <input type="text" name="doctorName" class="form-control" id="exampleFormControlInput1" placeholder="Harry" required>
+                        <label for="exampleFormControlInput1" class="form-label">Doctor's Name</label>
+                        <input type="text" name="doctorName" class="form-control" id="exampleFormControlInput1" value="{{ $data->doctorName }}" required>
                       </div>
                       <div class="mb-3">
                         <label for="exampleFormControlInput1" class="form-label">Phone Number</label>
-                        <input type="text" name="phoneNumber" class="form-control" id="exampleFormControlInput1" placeholder="01123541258" required>
+                        <input type="text" name="phoneNumber" class="form-control" id="exampleFormControlInput1"  value="{{ $data->phoneNumber }}"required>
                       </div>
                       <br>
+                      <label for="exampleFormControlInput1" class="form-label">Speciality</label>
+                      <br>
                       <select name="speciality" class="form-select" aria-label="Default select example">
-                        <option selected >Speciality</option>
+                        <option selected value="{{ $data->speciality }}">{{ $data->speciality }}</option>
                         <option value="Family Physician">Family Physician</option>
                         <option value="Dentist">Dentist</option>
                         <option value="Primary Care">Primary Care</option>
@@ -80,18 +80,23 @@
                       <br><br>
                       <div class="mb-3">
                         <label for="exampleFormControlInput1" class="form-label">Room Number</label>
-                        <input type="text" name="roomNumber" class="form-control" id="exampleFormControlInput1" placeholder="301" required>
+                        <input type="text" name="roomNumber" class="form-control" id="exampleFormControlInput1" value="{{ $data->roomNumber }}" placeholder="" required>
                       </div>
                       <br>
                       <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">Doctor Image</label>
+                        <label for="exampleFormControlInput1" class="form-label">Current Image</label>
                         <br>
-                        <input type="file" name="file" required>
+                        <img src="doctorimage/{{ $data->image }}" alt="" height="150" width="150">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Change Image</label>
+                        <br>
+                        <input type="file" name="file">
                     </div>
                       
 
                       <div class="modal-footer">
-                        <button type="submit" class="btn btn-outline-success">Submit</button>
+                        <button type="submit" class="btn btn-outline-success">Update</button>
                     </div>
                 </form>
 
@@ -100,8 +105,11 @@
 
         </div>
 
-        
+            
 
+    
+
+  
 
     <!-- Bootstrap core JavaScript-->
     <script src="admin/vendor/jquery/jquery.min.js"></script>

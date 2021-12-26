@@ -47,6 +47,15 @@
                 <span>Appointment</span></a>
         </li>
 
+        <!-- Nav Item - Appointment -->
+        <li class="nav-item">
+            <a class="nav-link" href={{ url('showdoctor') }}>
+                <i class="fas fa-hospital-user"></i>
+                <span>All Doctor</span></a>
+        </li>
+
+        
+
       
         <!-- Divider -->
         <hr class="sidebar-divider">

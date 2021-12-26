@@ -37,3 +37,9 @@ Route::get('/cancel_appoint/{id}','App\Http\Controllers\HomeController@cancel_ap
 Route::get('/showappointment','App\Http\Controllers\AdminController@showappointment');
 Route::get('/approved/{id}','App\Http\Controllers\AdminController@approved');
 Route::get('/deleted/{id}','App\Http\Controllers\AdminController@deleted');
+
+
+Route::get('/showdoctor','App\Http\Controllers\AdminController@showdoctor');
+Route::get('/deletedoctor/{id}','App\Http\Controllers\AdminController@deletedoctor');
+Route::get('/updatedoctor/{id}','App\Http\Controllers\AdminController@updatedoctor');
+Route::post('/editdoctor/{id}','App\Http\Controllers\AdminController@editdoctor');

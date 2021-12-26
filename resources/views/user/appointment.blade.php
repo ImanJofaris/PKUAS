@@ -18,7 +18,7 @@
             <select name="doctorName" id="departement" class="custom-select">
               <option value="">Select Doctor</option>
               @foreach ($doctor as $doctors)
-              <option value="{{ $doctors->speciality }}">{{ $doctors->speciality}} / Dr. {{ $doctors->doctorName }}</option>
+              <option value="{{ $doctors->doctorName }}">{{ $doctors->speciality}} / Dr. {{ $doctors->doctorName }}</option>
               @endforeach
              
               
