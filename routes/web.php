@@ -29,3 +29,11 @@ Route::get('/admin_home','App\Http\Controllers\AdminController@dashboard');
 Route::post('/upload_doctor','App\Http\Controllers\AdminController@upload');
 
 Route::post('/appointment','App\Http\Controllers\HomeController@appointment');
+
+Route::get('/myappointment','App\Http\Controllers\HomeController@myappointment');
+
+Route::get('/cancel_appoint/{id}','App\Http\Controllers\HomeController@cancel_appoint');
+
+Route::get('/showappointment','App\Http\Controllers\AdminController@showappointment');
+Route::get('/approved/{id}','App\Http\Controllers\AdminController@approved');
+Route::get('/deleted/{id}','App\Http\Controllers\AdminController@deleted');
