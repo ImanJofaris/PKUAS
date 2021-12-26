@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/','App\Http\Controllers\HomeController@index');
 //determine the user
-Route::get('/home','App\Http\Controllers\HomeController@redirect');
+Route::get('/home','App\Http\Controllers\HomeController@redirect')->middleware('auth','verified');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
