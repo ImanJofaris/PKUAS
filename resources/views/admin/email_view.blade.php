@@ -60,13 +60,28 @@
 
                
 
-                <form action="{{ url('sendemail',$data->id) }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ url('sendemail',$data->id) }}" method="POST">
                     {{ csrf_field() }}
                     <br>
-                    
+                    <div class="mb-3">
+                        {{-- <label for="exampleFormControlInput1" class="form-label">Greeting</label> --}}
+                        <input type="hidden" name="greeting" class="form-control" id="exampleFormControlInput1" value="Hi, this email is from Pusat Kesihatan UMP"required>
+                      </div>
                       <div class="mb-3">
                         <label for="exampleFormControlInput1" class="form-label">Body</label>
                         <textarea class="form-control" name="body" id="exampleFormControlTextarea1" rows="3" required>Your appointment has been approved. Please come at 10.00am. If you have any questions, feel free to call at +09 - 424 5777</textarea>
+                      </div>
+                      <div class="mb-3">
+                        {{-- <label for="exampleFormControlInput1" class="form-label">Action Text</label> --}}
+                        <input type="hidden" name="actiontext" class="form-control" id="exampleFormControlInput1" value="Please check your appointment status"required>
+                      </div>
+                      <div class="mb-3">
+                        {{-- <label for="exampleFormControlInput1" class="form-label">Action url</label> --}}
+                        <input type="hidden" name="actionurl" class="form-control" id="exampleFormControlInput1" value="http://127.0.0.1:8000"required>
+                      </div>
+                      <div class="mb-3">
+                        {{-- <label for="exampleFormControlInput1" class="form-label">End Part</label> --}}
+                        <input type="hidden" name="endpart" class="form-control" id="exampleFormControlInput1" value="Thank you for using PKU Appointment System"required>
                       </div>
                       
                       

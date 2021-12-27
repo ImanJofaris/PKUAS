@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Doctor;
 use App\Models\Appointment;
+use Notification;
 use App\Notifications\SendEmailNotification;
 
 class AdminController extends Controller
@@ -122,7 +123,11 @@ class AdminController extends Controller
     {
         $data = appointment::find($id);
         $details =[
-            'body' => $request->body
+            'greeting' => $request->greeting,
+            'body' => $request->body,
+            'actiontext' => $request->actiontext,
+            'actionurl' => $request->actionurl,
+            'endpart' => $request->endpart
         ];
 
         Notification::send($data,new SendEmailNotification($details));

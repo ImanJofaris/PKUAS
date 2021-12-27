@@ -47,8 +47,8 @@ class SendEmailNotification extends Notification
         return (new MailMessage)
                     ->greeting($this->details['greeting'])
                     ->line($this->details['body'])
-                    ->action('Check your application status',url('http://127.0.0.1:8000/'))
-                    ->line('Thank you for using PKU UMP system!');
+                    ->action($this->details['actiontext'],$this->details['actionurl'])
+                    ->line($this->details['endpart']);
     }
 
     /**
