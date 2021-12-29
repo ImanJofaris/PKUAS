@@ -7,13 +7,30 @@ use App\Models\Doctor;
 use App\Models\Appointment;
 use Notification;
 use App\Notifications\SendEmailNotification;
+use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
     //
     public function addview()
     {
-        return view('admin.add_doctor');
+        if(Auth::id())
+        {
+            if(Auth::user()->usertype==1)
+            {
+                return view('admin.add_doctor');
+            }
+
+            else
+            {
+                return redirect()->back();
+            }
+        }
+
+        else{
+            return redirect('login');
+        }
+        
     }
 
     public function dashboard()
@@ -46,8 +63,25 @@ class AdminController extends Controller
 
     public function showappointment()
     {
-        $data=appointment::all();
-        return view('admin.showappointment', compact('data'));
+        if(Auth::id())
+        {
+            if(Auth::user()->usertype==1)
+            {
+                $data=appointment::all();
+                return view('admin.showappointment', compact('data'));
+            }
+
+            else
+            {
+                return redirect()->back();
+            }
+        }
+
+        else{
+            return redirect('login');
+        }
+        
+        
     }
 
     public function approved($id)
