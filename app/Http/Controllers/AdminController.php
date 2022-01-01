@@ -8,6 +8,7 @@ use App\Models\Appointment;
 use Notification;
 use App\Notifications\SendEmailNotification;
 use Illuminate\Support\Facades\Auth;
+use DB;
 
 class AdminController extends Controller
 {
@@ -167,5 +168,15 @@ class AdminController extends Controller
         Notification::send($data,new SendEmailNotification($details));
         
         return redirect()->back()->with('message','Email is sent');
+    }
+
+    public function count()
+    {
+        $totaluser = DB::table('users')->count();
+        $totaldoctor = DB::table('doctors')->count();
+        $totalappointment = DB::table('appointments')->count();
+        $totalpending = DB::table('appointments')->where('status', '=', 'In Progress')->count();
+
+        return view('admin.home', compact('totaluser','totaldoctor','totalappointment','totalpending'));
     }
 }

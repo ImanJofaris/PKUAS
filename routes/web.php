@@ -46,3 +46,6 @@ Route::post('/editdoctor/{id}','App\Http\Controllers\AdminController@editdoctor'
 
 Route::get('/emailview/{id}','App\Http\Controllers\AdminController@emailview');
 Route::post('/sendemail/{id}','App\Http\Controllers\AdminController@sendemail');
+
+
+Route::get('/home','App\Http\Controllers\AdminController@count');
