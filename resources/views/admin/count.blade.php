@@ -39,7 +39,7 @@
     
         <!-- End of Sidebar -->
 
-        
+        @include('admin.body')
 
             
             

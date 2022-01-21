@@ -54,6 +54,13 @@
                 <span>All Doctor</span></a>
         </li>
 
+         <!-- Nav Item - Count -->
+         <li class="nav-item">
+            <a class="nav-link" href={{ url('homeadmin') }}>
+                <i class="fas fa-chart-line"></i>
+                <span>Analysis</span></a>
+        </li>
+
         
 
       

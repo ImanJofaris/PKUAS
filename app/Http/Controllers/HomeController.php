@@ -12,7 +12,7 @@ use App\Http\Controllers\HomeController;
 
 class HomeController extends Controller
 {
-    
+    //To determine either student or admin. If a student is logged in, it will be redirected to student page and otherwise
     public function redirect()
     {
         if(Auth::id())
@@ -35,6 +35,7 @@ class HomeController extends Controller
         }
     }
 
+    //To redirect to mainpage of the system
     public function index()
     {
         if(Auth::id())
@@ -51,6 +52,7 @@ class HomeController extends Controller
 
     }
 
+    //To save an appointment form to the database
     public function appointment(Request $request)
     {
         $data = new appointment;
@@ -74,6 +76,7 @@ class HomeController extends Controller
         
     }
 
+    //To retrieve data from database to view the appointment for the student
     public function myappointment()
     {
         if(Auth::id()){
@@ -88,6 +91,7 @@ class HomeController extends Controller
         
     }
 
+    //The student can delete an appointment 
     public function cancel_appoint($id)
     {
 
