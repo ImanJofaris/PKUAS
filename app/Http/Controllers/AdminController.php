@@ -12,7 +12,7 @@ use DB;
 
 class AdminController extends Controller
 {
-    //
+    //Only admin able to navigates to add doctor page
     public function addview()
     {
         if(Auth::id())
@@ -39,6 +39,7 @@ class AdminController extends Controller
         return view('admin.home');
     }
 
+    //Admin uploads all information about the information of doctor to the database
     public function upload(Request $request)
     {
         $doctor = new doctor;
@@ -62,6 +63,7 @@ class AdminController extends Controller
 
     }
 
+    //To retrieve data from database to view the appointment for the admin
     public function showappointment()
     {
         if(Auth::id())
@@ -85,6 +87,7 @@ class AdminController extends Controller
         
     }
 
+    //Admin can approve the appointment request by the student
     public function approved($id)
     {
         $data=appointment::find($id);
@@ -93,6 +96,7 @@ class AdminController extends Controller
         return redirect()->back();    
     }
 
+    //Admin can delete the appointment request by the student
     public function deleted($id)
     {
         $data=appointment::find($id);
@@ -101,12 +105,14 @@ class AdminController extends Controller
         return redirect()->back();
     }
 
+    //Retrieve data from doctor table for admin
     public function showdoctor()
     {
         $data=doctor::all();
         return view('admin.showdoctor', compact('data'));
     }
 
+    //Admin deletes doctor’s information
     public function deletedoctor($id)
     {
         $data=doctor::find($id);
@@ -114,12 +120,14 @@ class AdminController extends Controller
         return redirect()->back;
     }
 
+    //Admin able to find id of the doctor information page
     public function updatedoctor($id)
     {
         $data=doctor::find($id);
         return view('admin.update_doctor', compact('data'));
     }
 
+    //Admin edits the doctor’s information
     public function editdoctor(Request $request, $id)
     {
         $doctor=doctor::find($id);
@@ -148,12 +156,14 @@ class AdminController extends Controller
         return redirect()->back()->with('message','Doctor Informations Updated Successfully');;
     }
 
+    //To view form of the email 
     public function emailview($id)
     {
         $data=appointment::find($id);
         return view('admin.email_view',compact('data'));
     }
 
+    //Admin send an email to the student
     public function sendemail(Request $request, $id)
     {
         $data = appointment::find($id);
@@ -170,13 +180,15 @@ class AdminController extends Controller
         return redirect()->back()->with('message','Email is sent');
     }
 
+    //Retrieve data from database to count the number of total users, total doctor, total appointment and total pending
     public function count()
     {
+        
         $totaluser = DB::table('users')->count();
         $totaldoctor = DB::table('doctors')->count();
         $totalappointment = DB::table('appointments')->count();
         $totalpending = DB::table('appointments')->where('status', '=', 'In Progress')->count();
 
-        return view('admin.home', compact('totaluser','totaldoctor','totalappointment','totalpending'));
+        return view('admin.count', compact('totaluser','totaldoctor','totalappointment','totalpending'));
     }
 }
