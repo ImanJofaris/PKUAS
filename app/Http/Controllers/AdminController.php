@@ -117,7 +117,7 @@ class AdminController extends Controller
     {
         $data=doctor::find($id);
         $data->delete();
-        return redirect()->back;
+        return redirect()->back();
     }
 
     //Admin able to find id of the doctor information page
