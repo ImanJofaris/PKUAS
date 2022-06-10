@@ -5,10 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
-use App\Models\doctor;
+use App\Models\Doctor;
 use App\Models\Appointment;
-
-use App\Http\Controllers\HomeController;
 
 class HomeController extends Controller
 {
@@ -44,11 +42,11 @@ class HomeController extends Controller
         }
 
         else{
-            $doctor = doctor::all();
+            $doctor = Doctor::all();
             return view('user.home',compact('doctor'));
 
         }
-        
+
 
     }
 
@@ -73,7 +71,7 @@ class HomeController extends Controller
         $data->save();
 
         return redirect()->back()->with('message','Appointment request is successful. We will contact with you soon');
-        
+
     }
 
     //To retrieve data from database to view the appointment for the student
@@ -88,10 +86,10 @@ class HomeController extends Controller
         else{
             return redirect()->back();
         }
-        
+
     }
 
-    //The student can delete an appointment 
+    //The student can delete an appointment
     public function cancel_appoint($id)
     {
 
